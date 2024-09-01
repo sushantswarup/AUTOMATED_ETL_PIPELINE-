@@ -1,0 +1,26 @@
+bq load --source_format=CSV \
+--autodetect \
+--skip_leading_rows=1 \
+ETL_PROCESSING.STAGING_MIDCAP \
+/home/sushantswarup00/ETL_PROJECT/SOURCE_FILES/mid_cap_companies_Minutes_data.csv
+gsutil cp /home/sushantswarup00/ETL_PROJECT/SOURCE_FILES/mid_cap_companies_Minutes_data.csv gs://sushant_raw_data/
+bq load --source_format=CSV \
+--autodetect \
+--skip_leading_rows=1 \
+speedy-coder-434214-t0.ETL_PROCESSING.STAGING_MIDCAP \
+gs://sushant_raw_data/mid_cap_companies_Minutes_data.csv
+gsutil cp /home/sushantswarup00/ETL_PROJECT/SOURCE_FILES/large_cap_companies_Minutes_data.csv gs://sushant_raw_data/
+bq load --source_format=CSV \
+--autodetect \
+--skip_leading_rows=1 \
+ETL_PROCESSING.STAGING_LARGECAP \
+/home/sushantswarup00/ETL_PROJECT/SOURCE_FILES/large_cap_companies_Minutes_data.csv
+gsutil cp /home/sushantswarup00/ETL_PROJECT/SOURCE_FILES/small_cap_companies_Minutes_data.csv gs://sushant_raw_data/
+bq load --source_format=CSV \
+--autodetect \
+--skip_leading_rows=1 \
+ETL_PROCESSING.STAGING_SMALLCAP \
+/home/sushantswarup00/ETL_PROJECT/SOURCE_FILES/small_cap_companies_Minutes_data.csv
+
+
+
